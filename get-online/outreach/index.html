@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Outreach link builder · Joseph Abbas</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=Instrument+Serif:ital@1&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{background:var(--paper)}
+.tool{display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;align-items:start;padding:40px 0 80px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow)}
+.panel h2{font-size:24px;margin-bottom:6px}
+.panel>p{color:var(--muted);margin:0 0 22px;font-size:15px}
+.out{margin-bottom:22px}
+.out label{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;margin-bottom:8px}
+.out textarea,.out input{background:#FCFBF8}
+.out textarea{min-height:150px}
+.row-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.row-btns .btn{min-height:42px;padding:0 16px;font-size:14.5px}
+.btn[aria-disabled=true]{opacity:.4;pointer-events:none}
+.hint{font-size:13px;color:var(--muted);font-weight:400}
+.warn{display:none;background:#FFF1EC;border:1px solid #F5C2B2;color:#7A2A12;border-radius:12px;padding:12px 14px;font-size:14.5px;margin-bottom:16px}
+.warn.show{display:block}
+.note{background:var(--mint);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--ink-soft);margin-top:6px}
+.copied{color:var(--leaf);font-size:13px;font-weight:600;margin-left:6px}
+@media (max-width:900px){.tool{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="nav scrolled"><div class="wrap">
+  <a class="brand" href="../"><img src="../favicon.svg" alt="" width="34" height="34"><span>Outreach link builder<small>Private page · not linked from the site</small></span></a>
+  <a class="btn btn-ghost" href="../" style="min-height:42px">View site</a>
+</div></header>
+<main class="wrap tool">
+  <form class="panel" id="f" autocomplete="off" onsubmit="return false">
+    <h2>Business</h2>
+    <p>Fill this in, then copy the message or open it in your own Messages or email app. Nothing sends from this page. You press send yourself.</p>
+    <div class="warn" id="warn" role="alert"></div>
+    <div class="field"><label for="biz">Business name</label><input id="biz" required placeholder="e.g. The Straight Edge"></div>
+    <div class="field"><label for="demo">Demo slug or URL <span class="hint">(leave blank if no demo yet)</span></label><input id="demo" list="slugs" placeholder="the-straight-edge"><datalist id="slugs"></datalist></div>
+    <div class="field"><label for="type">Type of business <span class="hint">(optional)</span></label><input id="type" list="types" placeholder="barbershop, salon, diner, plumber…"><datalist id="types"><option value="barbershop"><option value="salon"><option value="diner"><option value="restaurant"><option value="plumber"><option value="electrician"><option value="handyman"><option value="landscaping"><option value="laundromat"><option value="variety store"><option value="appliance repair"></datalist></div>
+    <div class="two">
+      <div class="field"><label for="phone">Their phone</label><input id="phone" type="tel" placeholder="(207) 555-0123"></div>
+      <div class="field"><label for="email">Their email</label><input id="email" type="email" placeholder="owner@example.com"></div>
+    </div>
+    <div class="field"><label for="angle">Angle <span class="hint">(“with …”)</span></label><input id="angle" placeholder="their real prices and a tap-to-call button"></div>
+    <div class="field"><label for="benefit">Benefit <span class="hint">(“so …”)</span></label><input id="benefit" placeholder="customers can see your cuts and call you in one tap"></div>
+    <fieldset><legend style="font-size:14px;font-weight:600">Message type</legend>
+      <div class="seg">
+        <label><input type="radio" name="kind" value="demo" checked><span>Has a demo</span></label>
+        <label><input type="radio" name="kind" value="nodemo"><span>No demo yet</span></label>
+      </div>
+    </fieldset>
+    <fieldset><legend style="font-size:14px;font-weight:600">Link in the message</legend>
+      <div class="seg">
+        <label><input type="radio" name="linkto" value="landing" checked><span>Personal page</span></label>
+        <label><input type="radio" name="linkto" value="demo"><span>Demo directly</span></label>
+      </div>
+    </fieldset>
+    <label style="display:flex;gap:10px;align-items:center;font-size:15px;margin:4px 0 0"><input type="checkbox" id="optout" checked style="width:auto"> Add opt-out line</label>
+  </form>
+
+  <section class="panel" aria-live="polite" style="padding-bottom:12px">
+    <h2>Ready to send</h2>
+    <p>Review before sending. Only contact businesses you've decided to reach out to.</p>
+    <div class="out"><label for="o-link">Personal link <span class="copied" id="c-link"></span></label>
+      <input id="o-link" readonly>
+      <div class="row-btns"><button type="button" class="btn btn-primary" data-copy="o-link" data-flag="c-link">Copy link</button><a class="btn btn-ghost" id="b-preview" target="_blank" rel="noopener">Preview page</a></div></div>
+    <div class="out"><label for="o-text">Text / Messenger message <span class="copied" id="c-text"></span></label>
+      <textarea id="o-text"></textarea>
+      <div class="row-btns"><button type="button" class="btn btn-primary" data-copy="o-text" data-flag="c-text">Copy text</button><a class="btn btn-coral" id="b-sms">Open in Messages</a></div></div>
+    <div class="out"><label for="o-subj">Email subject <span class="copied" id="c-subj"></span></label>
+      <input id="o-subj">
+      <label for="o-mail" style="margin-top:12px">Email body <span class="copied" id="c-mail"></span></label>
+      <textarea id="o-mail" style="min-height:190px"></textarea>
+      <div class="row-btns"><button type="button" class="btn btn-primary" data-copy="o-mail" data-flag="c-mail">Copy email</button><a class="btn btn-coral" id="b-mail">Open in email app</a></div></div>
+    <p class="note">The buttons only open your phone's Messages app or your email app with everything filled in. This page can't send anything by itself.</p>
+  </section>
+</main>
+<script>
+window.KNOWN_SLUGS=["202-barbershop", "5-star-clippers", "abbot-village-barbershop", "alice-s-restaurant", "altered-ego-salon", "androscoggin-electric", "angelone-s-west", "apex-barbershop", "belfast-barber-shop", "bippy-handyman-services", "blakes-better-lawns", "cc-plumbing", "clipping-along", "cluff-electric-llc", "cook-plumbing-heating", "curb-appeal-handyman-services", "cut-loose", "cuttin-above-barber-co", "denice-s-beauty-shoppe", "depot-laundry", "drop-tree-forestry", "dw-and-sons-garage", "eds-barber-shop", "fortier-s-plumbing", "gerry-s-tree-service", "good-life-barbershop", "hair-and-company", "hair-by-betsy-jackson", "hair-loft", "hair-plus-beauty-salon", "hair-with-flair", "haircuts-109", "hammond-street-laundry", "holden-plumbing-sales-service", "jack-s-property-maintenance-cleaning-services", "jewlz-beyond-hair", "kelleys-sebago-diner", "kevin-martin-landscaping-and-general-contracting", "laundry-lounge-laundromat", "liliana-s-laundry", "limington-variety", "lisas-barber-shop", "lj-appliance-services-llc", "longstreet-s-septic-tank-service", "marquetta-s-salon-and-spa", "mcnulty-handyman-landscape-services-llc", "md-plumbing-services-matt-dickinson", "pjs-plumbing-heating", "pro-stream-plumbing-and-heating-llc", "root-cellar-family-hair-and-nail-care", "severino-s-variety", "shear-gratitude", "simplicity-salon-and-spa", "steph-s-barber-shop", "ta-dah-hairstyling-studio", "the-dragon-s-lair", "the-hive-barber-co", "the-mane-salon-barber-shop", "the-maples-antiques", "the-straight-edge", "the-village-barber", "the-village-barbershop", "the-west-end-barbershop", "top-cuts-barber-shop", "touchdown-cuts", "town-line-diner", "true-north-landscaping", "veteran-odd-jobs-llc", "village-barbershop-and-tattoos", "wiz-kid-appliance-repair"];
+</script>
+<script src="outreach.js" defer></script>
+</body>
+</html>
