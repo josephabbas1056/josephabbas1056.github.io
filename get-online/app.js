@@ -52,33 +52,33 @@
     var mailSub='Website for '+biz;
     function renderNoDemo(){
       eyebrow.textContent='Hi, '+biz;
-      title.textContent=biz+', let\u2019s get you online.';
-      body.textContent='I\u2019m Joseph Abbas. I build websites for '+(cat?LABEL[cat]:'small businesses')+' that don\u2019t have one yet. I\u2019ll make a free custom demo for '+biz+' so you can see it before deciding anything. If you like it, it goes live for $500 with everything set up for you.';
+      title.textContent='Let\u2019s get '+biz+' found online.';
+      body.textContent='I\u2019m Joseph Abbas. I build websites for '+(cat?LABEL[cat]:'local small businesses')+', and I\u2019ll build '+biz+'\u2019s first, free, so you can see it before deciding anything. If you like it, it goes live for $500 with everything set up for you. If not, you owe nothing.';
       ctas.textContent='';
-      ctas.appendChild(btn('btn-primary','sms:'+PHONE+'?&body='+encodeURIComponent(smsBody+'I\u2019d like a free demo website.'),'i-msg','Text for your free demo'));
-      ctas.appendChild(btn('btn-ghost','tel:'+PHONE,'i-phone','Call (207) 601-1495'));
+      ctas.appendChild(btn('btn-coral','tel:'+PHONE,'i-phone','Call (207) 601-1495'));
+      ctas.appendChild(btn('btn-ghost','sms:'+PHONE+'?&body='+encodeURIComponent(smsBody+'I\u2019d like a free demo website.'),'i-msg','Text me'));
       ctas.appendChild(btn('btn-ghost','mailto:'+EMAIL+'?subject='+encodeURIComponent('Free demo for '+biz)+'&body='+encodeURIComponent('Hi Joseph,\n\nI\u2019d like a free demo website for '+biz+'.\n\n'),'i-mail','Email'));
       frame.className='pframe nodemo';frame.textContent='';
       var art=el('div',{'class':'nodemo-art'}),mock=el('div',{'class':'mock','aria-hidden':'true'});
       mock.appendChild(el('div',{'class':'l s'}));mock.appendChild(el('div',{'class':'l t'}));mock.appendChild(el('div',{'class':'l'}));mock.appendChild(el('div',{'class':'l'}));mock.appendChild(el('div',{'class':'l s'}));mock.appendChild(el('span',{'class':'b'}));
-      art.appendChild(mock);art.appendChild(el('p',{style:'margin:0'},'Your free demo for '+biz+' goes here. Just say the word.'));
+      art.appendChild(mock);art.appendChild(el('p',{style:'margin:0'},'Your website for '+biz+' goes here. Call or text and I\u2019ll build it, free.'));
       frame.appendChild(art);
       $('#forbar-text').textContent='Hi '+biz+', this page was put together for you.';
     }
     function renderDemo(){
       var url='../'+demo+'/';
-      eyebrow.textContent='Your free demo';
-      title.textContent=biz+', here\u2019s your demo site.';
-      body.textContent='I\u2019m Joseph Abbas. I put together this demo website for '+biz+' so you can see what yours could look like. Take a look on your phone. If you like it, I can get it live for $500 with everything set up for you.';
+      eyebrow.textContent='Your website is ready';
+      title.textContent=biz+', I built you a website.';
+      body.textContent='I\u2019m Joseph Abbas. This demo is already built for '+biz+', free. Open it on your phone and see how customers would find you. If you like it, it goes live for $500 with everything set up for you. Call me and we\u2019ll get it live.';
       ctas.textContent='';
       var open=btn('btn-coral',url,'i-arrow','Open your demo');open.target='_blank';open.rel='noopener';ctas.appendChild(open);
-      ctas.appendChild(btn('btn-ghost','sms:'+PHONE+'?&body='+encodeURIComponent(smsBody+'I saw the demo site.'),'i-msg','Text Joseph'));
-      ctas.appendChild(btn('btn-ghost','tel:'+PHONE,'i-phone','Call'));
+      ctas.appendChild(btn('btn-primary','tel:'+PHONE,'i-phone','Call (207) 601-1495'));
+      ctas.appendChild(btn('btn-ghost','sms:'+PHONE+'?&body='+encodeURIComponent(smsBody+'I saw the demo site.'),'i-msg','Text me'));
       frame.className='pframe';frame.textContent='';
       var ifr=el('iframe',{src:url,title:'Demo website preview for '+biz,loading:'lazy',tabindex:'-1','aria-hidden':'true'});
       frame.appendChild(ifr);
       var ov=el('a',{'class':'open',href:url,target:'_blank',rel:'noopener','aria-label':'Open the demo for '+biz});ov.appendChild(el('span',null,'Open full demo \u2197'));frame.appendChild(ov);
-      $('#forbar-text').textContent='Hi '+biz+', your free demo site is ready.';
+      $('#forbar-text').textContent='Hi '+biz+', your website demo is ready to see.';
     }
     if(demo){
       renderDemo();

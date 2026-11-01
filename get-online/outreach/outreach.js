@@ -30,9 +30,9 @@
     var msg='';
     if(biz){
       if(kind==='demo'){
-        msg='Hey, it\u2019s Joseph Abbas, I\u2019m local here in Maine and I build websites for small businesses. I put together a demo site for '+biz+(angle?' with '+angle:'')+(benefit?', so '+benefit:'')+'. Here\u2019s the link: '+link+' If you like it, I can get it live for $500 with everything set up for you.';
+        msg='Hey, it\u2019s Joseph Abbas. I build websites for local small businesses. I put together a demo site for '+biz+(angle?' with '+angle:'')+(benefit?', so '+benefit:'')+'. Here\u2019s the link: '+link+' If you like it, I can get it live for $500 with everything set up for you.';
       } else {
-        msg='Hey, it\u2019s Joseph Abbas, I\u2019m local here in Maine and I build websites for small businesses. I noticed '+biz+' doesn\u2019t have a website yet, so I put together a page for you: '+link+' If you\u2019d like one, I can build it for $500 with everything set up. Happy to chat by phone, in person or on Zoom.';
+        msg='Hey, it\u2019s Joseph Abbas. I build websites for local small businesses. I noticed '+biz+' doesn\u2019t have a website yet, so I put together a page for you: '+link+' If you\u2019d like one, I can build it for $500 with everything set up. Happy to chat by phone, in person or on Zoom.';
       }
       if($('optout').checked)msg+='\n\nNot interested? Reply STOP and I won\u2019t reach out again.';
     }
