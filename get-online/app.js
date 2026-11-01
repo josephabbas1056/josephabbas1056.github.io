@@ -53,7 +53,7 @@
     function renderNoDemo(){
       eyebrow.textContent='Hi, '+biz;
       title.textContent=biz+', let\u2019s get you online.';
-      body.textContent='I\u2019m Joseph Abbas, local here in Maine. I build websites for '+(cat?LABEL[cat]:'small businesses')+' that don\u2019t have one yet. I\u2019ll make a free custom demo for '+biz+' so you can see it before deciding anything. If you like it, it goes live for $500 with everything set up for you.';
+      body.textContent='I\u2019m Joseph Abbas. I build websites for '+(cat?LABEL[cat]:'small businesses')+' that don\u2019t have one yet. I\u2019ll make a free custom demo for '+biz+' so you can see it before deciding anything. If you like it, it goes live for $500 with everything set up for you.';
       ctas.textContent='';
       ctas.appendChild(btn('btn-primary','sms:'+PHONE+'?&body='+encodeURIComponent(smsBody+'I\u2019d like a free demo website.'),'i-msg','Text for your free demo'));
       ctas.appendChild(btn('btn-ghost','tel:'+PHONE,'i-phone','Call (207) 601-1495'));
@@ -69,7 +69,7 @@
       var url='../'+demo+'/';
       eyebrow.textContent='Your free demo';
       title.textContent=biz+', here\u2019s your demo site.';
-      body.textContent='I\u2019m Joseph Abbas, local here in Maine. I put together this demo website for '+biz+' so you can see what yours could look like. Take a look on your phone. If you like it, I can get it live for $500 with everything set up for you.';
+      body.textContent='I\u2019m Joseph Abbas. I put together this demo website for '+biz+' so you can see what yours could look like. Take a look on your phone. If you like it, I can get it live for $500 with everything set up for you.';
       ctas.textContent='';
       var open=btn('btn-coral',url,'i-arrow','Open your demo');open.target='_blank';open.rel='noopener';ctas.appendChild(open);
       ctas.appendChild(btn('btn-ghost','sms:'+PHONE+'?&body='+encodeURIComponent(smsBody+'I saw the demo site.'),'i-msg','Text Joseph'));
